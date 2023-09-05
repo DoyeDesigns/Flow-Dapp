@@ -87,15 +87,21 @@ export default function Home() {
 
     return (
 	// generates a log out button if loggedIn is true
-      <div>
-        <div>Address: {user?.addr ?? "No Address"}</div>
-        <div>Profile Name: {name ?? "--"}</div> 
-        <div>Transaction Status: {transactionStatus ?? "--"}</div>
-        <button onClick={sendQuery}>Send Query</button>
-        <button onClick={initAccount}>Init Account</button>
-        <button onClick={executeTransaction}>Execute Transaction</button>
-        <button onClick={fcl.unauthenticate}>Log Out</button>
+      <>
+        <div>
+          <div className='flex flex-col gap-2'>
+            <div>Address: {user?.addr ?? "No Address"}</div>
+            <div>Profile Name: {name ?? "--"}</div> 
+            <div>Transaction Status: {transactionStatus ?? "--"}</div>
           </div>
+          <div className='flex gap-4 m-5'>
+            <button onClick={sendQuery} className='bg-sky-600 p-2 rounded-md text-[white]'>Send Query</button>
+            <button onClick={initAccount} className='bg-sky-600 p-2 rounded-md text-[white]'>Init Account</button>
+            <button onClick={executeTransaction} className='bg-sky-600 p-2 rounded-md text-[white]'>Execute Transaction</button>
+            <button onClick={fcl.unauthenticate} className='bg-sky-600 p-2 rounded-md text-[white]'>Log Out</button>
+          </div>
+        </div>
+      </>
         )
       }
 
